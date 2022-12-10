@@ -85,18 +85,41 @@ Pizza.prototype.cost = function() {
 
 window.addEventListener("load", function () {
 
-  function handleCheckBoxes() {
-    let legend = document.querySelector('legend#toppings')
+  let sauceLegend = document.querySelector('legend#sauces');
+  let regToppingLegend = document.querySelector('legend#toppings');
+  let specialToppingLegend = document.querySelector('legend#special-toppings');
+  let sauceInput = [];
+  let toppingInput = [];
+  let specialToppingInput = [];
+
+  function handleCheckBoxes(x, y, z, legend) {
     let label = document.createElement("label");
-    let input = (document.createElement("input"));
+    let input = document.createElement("input");
+    let lineBreak = document.createElement("br");
     legend.after(label);
-    label.append('M&Ms');
-    label.setAttribute('for', 'M&Ms');
+    label.append(x);
+    label.setAttribute('for', x);
     label.append(input);
-    input.setAttribute('type', 'checkbox');
-    input.setAttribute('name', 'reg-toppings');
-    input.setAttribute('value', 'M&Ms');
-    input.setAttribute('id', 'M&Ms');
+    input.setAttribute('type', z);
+    input.setAttribute('name', y);
+    input.setAttribute('value', x);
+    input.setAttribute('id', x);
+    label.after(lineBreak);
+    return input;
+  }
+
+  for (i = 0; i < Toppings.Sauces.toppings.length; i++) {
+    sauceInput.push(handleCheckBoxes(Toppings.Sauces.toppings[i], 'sauces', 'radio', sauceLegend));
+  }
+  
+  sauceInput[0].checked = true;
+
+  for (i = 0; i < Toppings.RegTopping.toppings.length; i++) {
+    toppingInput.push(handleCheckBoxes(Toppings.RegTopping.toppings[i], 'toppings', 'checkbox', regToppingLegend));
+  }
+  
+  for (i = 0; i < Toppings.FunTopping.toppings.length; i++) {
+    specialToppingInput.push(handleCheckBoxes(Toppings.FunTopping.toppings[i], 'special-toppings', 'checkbox', specialToppingLegend));
   }
   
 
@@ -113,10 +136,6 @@ window.addEventListener("load", function () {
   });
   p.append(favoriteFlavors);
   h1.after(p);*/
-
-  function loop() {
-
-  }
 
   function orderPizza() {
 
