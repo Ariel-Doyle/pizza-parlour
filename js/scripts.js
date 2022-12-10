@@ -52,13 +52,25 @@ Pizza.prototype.toppingPrice = function(toppingIndex) {
 };
 
 Pizza.prototype.cost = function() {
-
+  let totalCost = 0;
+  const toppingArrayLength = Toppings.AllTopping.toppings.length;
+  switch (this.size) {
+    case Size.Small:
+      totalCost = 12 
+      break;
+    case Size.Medium:
+      totalCost = 18;
+      break;
+    case Size.Large:
+      totalCost = 25;
+      break;
+    default:
+      break;
+  }
+  for (i = 0; i < toppingArrayLength; i++) {
+    totalCost += this.toppingPrice(i) * this.toppings[i];
+  }
+  return totalCost;
 }
 
 //UI Logic
-
-
-
-
-
-
