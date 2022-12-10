@@ -28,6 +28,7 @@ function Pizza() {
   this.size = Size.Medium;
   this.sauces = 0;
   this.toppings = Array(Toppings.AllTopping.toppings.length).fill(0);
+  //this.halfPizza = false;
 }
 
 Pizza.prototype.chooseSize = function(size) {
@@ -70,6 +71,9 @@ Pizza.prototype.cost = function() {
   for (i = 0; i < toppingArrayLength; i++) {
     totalCost += this.toppingPrice(i) * this.toppings[i];
   }
+  /*if (this.halfPizza) {
+    totalCost /= 2;
+  }*/
   return totalCost;
 }
 
