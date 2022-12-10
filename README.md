@@ -100,4 +100,3 @@ pizza.chooseSize(Size.Large);
 pizza.toppings[9] = 1;
 pizza.cost(); 
 Expected Output: 26.5
-
