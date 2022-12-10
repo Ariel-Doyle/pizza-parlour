@@ -8,3 +8,10 @@ h1, legend {
 p, label {
   font-family: 'Rubik', sans-serif;
 }
+
+input {
+  float: left;
+}
+
+
+

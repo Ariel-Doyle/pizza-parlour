@@ -24,6 +24,10 @@ class Toppings {
   }
 }
 
+function PizzaCart() {
+  this.pizza = {}
+}
+
 function Pizza() {
   this.size = Size.Medium;
   this.sauces = 0;
@@ -78,3 +82,48 @@ Pizza.prototype.cost = function() {
 }
 
 //UI Logic
+
+window.addEventListener("load", function () {
+
+  //function handleCheckBoxes()
+
+    let legend = document.querySelector('legend#toppings')
+    let label = document.createElement("label");
+    let input = (document.createElement("input"));
+    legend.after(label);
+    label.append('M&Ms');
+    label.setAttribute('for', 'M&Ms');
+    label.append(input);
+    input.setAttribute('type', 'checkbox');
+    input.setAttribute('name', 'reg-toppings');
+    input.setAttribute('value', 'M&Ms');
+    input.setAttribute('id', 'M&Ms');
+  
+
+  let h1 = document.createElement("h1");
+  let body = document.querySelector("body");
+  h1.append("Ice Cream Loop");
+  body.after(h1);
+
+  let p = document.createElement("p");
+  let favoriteFlavors = "My favorite ice cream flavors are...";
+  let flavorArray = ["New York Super Fudge Chunk", "Monster Cookie", "Coffee"];
+  flavorArray.forEach(function(flavor) {
+    favoriteFlavors = favoriteFlavors.concat(" " + flavor + "!");
+  });
+  p.append(favoriteFlavors);
+  h1.after(p);
+
+  function loop() {
+
+  }
+
+  function orderPizza() {
+
+  }
+
+  function addAPizza() {
+
+  }
+
+});
