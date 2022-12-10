@@ -9,6 +9,13 @@ Expected Output: Pizza {size: Size {size: 'medium'} , sauces: 0, toppings: Array
 Test: "It should return a Pizza object with a size set to large when input of Size.Large is referenced."
 Code: 
 let pizza = new Pizza();
+pizza.toppingPrice(9);
+Expected Output: 1.125
+//[9] is 'whipped cream' which costs .75 for a size Small pizza, so the default of Medium pizza returns (.75 * 1.5).
+
+Test: "It should return a Pizza object with a topping price reflecting input of Size is referenced."
+Code: 
+let pizza = new Pizza();
 pizza.chooseSize(Size.Large);
 pizza;
 Expected Output: Pizza {size: Size {size: 'large'} ...}
