@@ -1,9 +1,17 @@
 Describe: Pizza()
 
-Test: "It should return a Pizza object with 3 properties for size, toppings, and cost."
+Test: "It should return a Pizza object with 3 properties for size, sauces. and toppings."
 Code:
 let pizza = new Pizza();
-Expected Output: Pizza {size: , toppings: , cost: }
+pizza;
+Expected Output: Pizza {size: Size {size: 'medium'} , sauces: 0, toppings: Array(16)}
+
+Test: "It should return a Pizza object with a size set to large when input of Size.Large is referenced."
+Code: 
+let pizza = new Pizza();
+pizza.chooseSize(Size.Large);
+pizza;
+Expected Output: Pizza {size: Size {size: 'large'} ...}
 
 
 Describe: Size
