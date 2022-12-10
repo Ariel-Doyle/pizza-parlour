@@ -17,9 +17,9 @@ class Size {
 class Toppings {
   static Sauces = new Toppings(["chocolate ganache", "brown butter caramel", "maple syrup", "lemon curd"], Array(4).fill(0));
   static RegTopping = new Toppings(["M&M's", "caramel popcorn", "peanut butter cups", "Skittles", "Nerdz", "marshmallows", "mixed berries", "sprinkles", "cookie dough", "whipped cream"], Array(10).fill(.75));
-  static FunTopping = new Toppings(["pretzels", "chili flakes", "smoked sea salt", "bacon crumbles", "gold leaf"], [.80, .80, .80, 1.50, 3]);
+  static FunTopping = new Toppings(["pretzels", "peanuts", "chili flakes", "smoked sea salt", "bacon crumbles", "gold leaf"], [.80, .80, .80, .80, 1.50, 3]);
 
-  constructor(toppings,prices) {
+  constructor(toppings, prices) {
     this.toppings = toppings;
     this.prices = prices;
   }
