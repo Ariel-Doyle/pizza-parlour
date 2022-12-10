@@ -17,5 +17,10 @@ Describe: Toppings
 
 Test: "It should return a Topping object for Topping."
 Code:
-Topping.Sauces;
+Toppings.Sauces;
 Expected Output: {toppings: Array(4), prices: Array(4)}
+
+Test: "It should return the corresponding item from an array index for AllTopping."
+Code:
+Toppings.AllTopping.toppings[9];
+Expected Output: 'whipped cream'
