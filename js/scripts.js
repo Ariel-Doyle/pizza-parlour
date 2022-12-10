@@ -1,3 +1,7 @@
+function roundToNearestNickle(x) {
+  return ((Math.ceil(x * 20))/20);
+}
+
 class Size {
   static Small = new Size("small");
   static Medium = new Size("medium");
@@ -48,7 +52,7 @@ Pizza.prototype.toppingPrice = function(toppingIndex) {
 };
 
 Pizza.prototype.cost = function() {
-  
+
 }
 
 //UI Logic
