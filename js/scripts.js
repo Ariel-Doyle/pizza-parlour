@@ -85,8 +85,7 @@ Pizza.prototype.cost = function() {
 
 window.addEventListener("load", function () {
 
-  //function handleCheckBoxes()
-
+  function handleCheckBoxes() {
     let legend = document.querySelector('legend#toppings')
     let label = document.createElement("label");
     let input = (document.createElement("input"));
@@ -98,9 +97,10 @@ window.addEventListener("load", function () {
     input.setAttribute('name', 'reg-toppings');
     input.setAttribute('value', 'M&Ms');
     input.setAttribute('id', 'M&Ms');
+  }
   
 
-  let h1 = document.createElement("h1");
+  /*let h1 = document.createElement("h1");
   let body = document.querySelector("body");
   h1.append("Ice Cream Loop");
   body.after(h1);
@@ -112,7 +112,7 @@ window.addEventListener("load", function () {
     favoriteFlavors = favoriteFlavors.concat(" " + flavor + "!");
   });
   p.append(favoriteFlavors);
-  h1.after(p);
+  h1.after(p);*/
 
   function loop() {
 
