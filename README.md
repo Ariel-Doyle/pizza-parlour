@@ -21,7 +21,6 @@ _This is a simple HTML webpage as practice for writing code in line with lessons
 
 ## Setup/Installation Requirements
 
-- _You can access this page via [GitHub Pages]()_
 - _Access [Github](https://github.com/)_
 - _Clone this repository (https://github.com/Ariel-Doyle/pizza-parlour.git) to your desktop_
 - _Navigate to the top level of the directory_
@@ -29,11 +28,7 @@ _This is a simple HTML webpage as practice for writing code in line with lessons
 
 ## Known Bugs
 
-- _??_
-
-## Recognition
-
-_Photo by <a href="">Photo Title</a> on <a href="">Unsplash</a>_
+- _None Currently Known._
 
 ## License
 
