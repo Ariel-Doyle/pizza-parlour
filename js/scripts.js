@@ -53,7 +53,7 @@ Pizza.prototype.toppingPrice = function(toppingIndex) {
     default:
       break;
   }
-  return Toppings.AllTopping.prices[toppingIndex] * priceMultiplier;
+  return roundToNearestNickle(Toppings.AllTopping.prices[toppingIndex] * priceMultiplier);
 };
 
 Pizza.prototype.cost = function() {
@@ -78,71 +78,97 @@ Pizza.prototype.cost = function() {
   /*if (this.halfPizza) {
     totalCost /= 2;
   }*/
-  return totalCost;
+  return roundToNearestNickle(totalCost);
 }
 
 //UI Logic
 
-window.addEventListener("load", function () {
-
+window.addEventListener("load", function (e) {
+  e.preventDefault();
+  let pizza = new Pizza();
   let sauceLegend = document.querySelector('legend#sauces');
   let regToppingLegend = document.querySelector('legend#toppings');
   let specialToppingLegend = document.querySelector('legend#special-toppings');
   let sauceInput = [];
   let toppingInput = [];
   let specialToppingInput = [];
+  //let toppingPriceArray = [];
+  let orderBtn = document.getElementById('order-button');
 
-  function handleCheckBoxes(x, y, z, legend) {
+  function handleCheckBoxes(toppingName, buttonName, buttonType, legend) {
     let label = document.createElement("label");
     let input = document.createElement("input");
     let lineBreak = document.createElement("br");
     legend.after(label);
-    label.append(x);
-    label.setAttribute('for', x);
+    label.append(toppingName);
+    label.setAttribute('for', toppingName);
     label.append(input);
-    input.setAttribute('type', z);
-    input.setAttribute('name', y);
-    input.setAttribute('value', x);
-    input.setAttribute('id', x);
+    input.setAttribute('type', buttonType);
+    input.setAttribute('name', buttonName);
+    input.setAttribute('value', toppingName);
+    input.setAttribute('id', toppingName);
     label.after(lineBreak);
     return input;
   }
 
-  for (i = 0; i < Toppings.Sauces.toppings.length; i++) {
+  for (i = Toppings.Sauces.toppings.length - 1; i >= 0; i--) {
     sauceInput.push(handleCheckBoxes(Toppings.Sauces.toppings[i], 'sauces', 'radio', sauceLegend));
   }
   
-  sauceInput[0].checked = true;
+  sauceInput[3].checked = true;
 
   for (i = 0; i < Toppings.RegTopping.toppings.length; i++) {
     toppingInput.push(handleCheckBoxes(Toppings.RegTopping.toppings[i], 'toppings', 'checkbox', regToppingLegend));
+    //toppingPriceArray.push(toString(pizza.toppingPrice(i)));
+    //toppingInput[i].after(' (' + pizza.toppingPrice(i) + ')');
   }
   
   for (i = 0; i < Toppings.FunTopping.toppings.length; i++) {
     specialToppingInput.push(handleCheckBoxes(Toppings.FunTopping.toppings[i], 'special-toppings', 'checkbox', specialToppingLegend));
+    //specialToppingInput[i].after(' (' + pizza.toppingPrice(i + Toppings.RegTopping.prices.length) + ')');
   }
-  
 
-  /*let h1 = document.createElement("h1");
-  let body = document.querySelector("body");
-  h1.append("Ice Cream Loop");
-  body.after(h1);
+  function selectAndDisplayToppings() {
+    if (Toppings.AllTopping.topping.checked === true) {
 
-  let p = document.createElement("p");
-  let favoriteFlavors = "My favorite ice cream flavors are...";
-  let flavorArray = ["New York Super Fudge Chunk", "Monster Cookie", "Coffee"];
-  flavorArray.forEach(function(flavor) {
-    favoriteFlavors = favoriteFlavors.concat(" " + flavor + "!");
-  });
-  p.append(favoriteFlavors);
-  h1.after(p);*/
+    }
+
+  }
 
   function orderPizza() {
+    let small = document.getElementById("small");
+    let medium = document.getElementById("medium");
+    let large = document.getElementById("large");
+    if (small.checked) {
+      pizza.chooseSize(Size.Small);
+    } else if (medium.checked) {
+      pizza.chooseSize(Size.Medium);
+    } else if (large.checked) {
+      pizza.chooseSize(Size.Large);
+    }
 
+    for (i = 0; i < sauceInput.length; i++) {
+      if (sauceInput[i].checked) {
+        pizza.sauces = i;
+      }
+    }
+
+    for (i = 0; i < toppingInput.length; i++) {
+      if (toppingInput[i].checked) {
+        pizza.toppings[i] = 1;
+      }
+    }
+
+    for (i = 0; i < specialToppingInput.length; i++) {
+      if (specialToppingInput[i].checked) {
+        pizza.toppings[i + toppingInput.length] = 1;
+      }
+    }
+    console.log(pizza.cost());
+    //return  pizza.cost();
   }
 
-  function addAPizza() {
+  orderBtn.addEventListener("click", orderPizza);
 
-  }
 
 });

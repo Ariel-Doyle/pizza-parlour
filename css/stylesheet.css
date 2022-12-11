@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&family=Rubik+Vinyl&display=swap');
 
+body {
+  color: hotpink;
+  background-color: black;  
+}
+
 
 h1, legend {
   font-family: 'Rubik Vinyl', cursive;
@@ -11,7 +16,6 @@ p, label {
 
 input {
   float: left;
-  
 }
 
 
