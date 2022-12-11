@@ -32,7 +32,6 @@ function Pizza() {
   this.size = Size.Medium;
   this.sauces = 0;
   this.toppings = Array(Toppings.AllTopping.toppings.length).fill(0);
-  //this.halfPizza = false;
 }
 
 Pizza.prototype.chooseSize = function(size) {
@@ -75,9 +74,6 @@ Pizza.prototype.cost = function() {
   for (i = 0; i < toppingArrayLength; i++) {
     totalCost += this.toppingPrice(i) * this.toppings[i];
   }
-  /*if (this.halfPizza) {
-    totalCost /= 2;
-  }*/
   return roundToNearestNickle(totalCost);
 }
 
@@ -92,7 +88,6 @@ window.addEventListener("load", function (e) {
   let sauceInput = [];
   let toppingInput = [];
   let specialToppingInput = [];
-  //let toppingPriceArray = [];
   let orderBtn = document.getElementById('order-button');
 
   function handleCheckBoxes(toppingName, buttonName, buttonType, legend) {
@@ -119,13 +114,10 @@ window.addEventListener("load", function (e) {
 
   for (i = 0; i < Toppings.RegTopping.toppings.length; i++) {
     toppingInput.push(handleCheckBoxes(Toppings.RegTopping.toppings[i], 'toppings', 'checkbox', regToppingLegend));
-    //toppingPriceArray.push(toString(pizza.toppingPrice(i)));
-    //toppingInput[i].after(' (' + pizza.toppingPrice(i) + ')');
   }
   
   for (i = 0; i < Toppings.FunTopping.toppings.length; i++) {
     specialToppingInput.push(handleCheckBoxes(Toppings.FunTopping.toppings[i], 'special-toppings', 'checkbox', specialToppingLegend));
-    //specialToppingInput[i].after(' (' + pizza.toppingPrice(i + Toppings.RegTopping.prices.length) + ')');
   }
 
   function orderPizza() {
@@ -158,7 +150,7 @@ window.addEventListener("load", function (e) {
       }
     }
 
-    document.querySelector("h1#total").innerText = ("Total Cost: " + pizza.cost());
+    document.querySelector("h1#total").innerText = ("Total Cost: $" + pizza.cost());
   }
 
   orderBtn.addEventListener("click", orderPizza);

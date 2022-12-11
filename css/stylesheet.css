@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik&family=Rubik+Vinyl&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&family=Rubik+Gemstones&family=Rubik+Vinyl&display=swap');
 
 body {
   color: hotpink;
   background-color: black;  
 }
 
-
 h1, legend {
-  font-family: 'Rubik Vinyl', cursive;
+  font-family: 'Rubik Gemstones', cursive;
+  padding-top: 30px;
 }
 
 p, label {
@@ -16,6 +16,18 @@ p, label {
 
 input {
   float: left;
+}
+
+#intro {
+  text-align: center;
+}
+
+#order-button {
+  font-family: 'Rubik Gemstones', cursive;
+}
+
+#total {
+  text-align: center;
 }
 
 
