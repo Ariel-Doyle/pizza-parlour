@@ -15,7 +15,7 @@ class Size {
 class Toppings {
   static Sauces = new Toppings(["chocolate ganache", "brown butter caramel", "maple syrup", "lemon curd"], Array(4).fill(0));
   static RegTopping = new Toppings(["M&M's", "caramel popcorn", "peanut butter cups", "Skittles", "Nerdz", "marshmallows", "mixed berries", "sprinkles", "cookie dough", "whipped cream"], Array(10).fill(.75));
-  static FunTopping = new Toppings(["pretzels", "peanuts", "chili flakes", "smoked sea salt", "bacon crumbles", "gold leaf"], [.80, .80, .80, .80, 1.50, 3]);
+  static FunTopping = new Toppings(["pretzels", "roasted peanuts", "chili flakes", "smoked sea salt", "bacon crumbles", "gold leaf"], [.80, .80, .80, .80, 1.50, 3]);
   static AllTopping = new Toppings((Toppings.RegTopping.toppings).concat(Toppings.FunTopping.toppings), (Toppings.RegTopping.prices).concat(Toppings.FunTopping.prices));
 
   constructor(toppings, prices) {
@@ -128,13 +128,6 @@ window.addEventListener("load", function (e) {
     //specialToppingInput[i].after(' (' + pizza.toppingPrice(i + Toppings.RegTopping.prices.length) + ')');
   }
 
-  function selectAndDisplayToppings() {
-    if (Toppings.AllTopping.topping.checked === true) {
-
-    }
-
-  }
-
   function orderPizza() {
     let small = document.getElementById("small");
     let medium = document.getElementById("medium");
@@ -164,11 +157,9 @@ window.addEventListener("load", function (e) {
         pizza.toppings[i + toppingInput.length] = 1;
       }
     }
-    console.log(pizza.cost());
-    //return  pizza.cost();
+
+    document.querySelector("h1#total").innerText = ("Total Cost: " + pizza.cost());
   }
 
   orderBtn.addEventListener("click", orderPizza);
-
-
 });
